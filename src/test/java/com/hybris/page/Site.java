@@ -17,6 +17,7 @@ public class Site
 	public PowerHome gotoPowerHome()
 	{
 		webDriver.get("http://powertools.dev-com4-2.yrdrt.fra.hybris.com:9001/yb2bacceleratorstorefront/");
+		webDriver.manage().window().maximize();
 		return powerHome;
 	 }
 }

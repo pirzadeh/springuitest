@@ -23,7 +23,7 @@ public class SeleniumTestCaseContext {
 	@Bean
 	public static CustomScopeConfigurer customScopeConfigurer() {
 		CustomScopeConfigurer scopeConfigurer = new CustomScopeConfigurer();
-		Map<String, Object> scopes = new HashMap<>();
+		Map<String, Object> scopes = new HashMap<String, Object>();
 		scopes.put("test", testScope());
 		scopeConfigurer.setScopes(scopes);
 		return scopeConfigurer;
