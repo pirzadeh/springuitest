@@ -4,17 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class PageObject {
-	
-	@Autowired
-	private static WebDriver driver;
 
-	public static WebDriver getDriver() {
+	@Autowired
+	private WebDriver driver;
+
+	public WebDriver getDriver() {
 		return driver;
 	}
 
-	public static void setDriver(WebDriver driver) {
-		PageObject.driver = driver;
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
 	}
-	
-	
+
 }
