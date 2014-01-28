@@ -1,20 +1,14 @@
 package com.hybris.page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.hybris.page.base.Page;
+import com.hybris.page.base.PageObject;
 
 @Page
-public class PowerViewCartPage {
-
-	@Autowired
-	private WebDriver webDriver;
+public class PowerViewCartPage extends PageObject{
 
 	@Autowired
 	private PowerLoginPage powerLoginPage;
@@ -34,7 +28,6 @@ public class PowerViewCartPage {
 
 	public PowerLoginPage checkoutCart() {
 
-		System.out.println("Here ==> " + webDriver);
 		checkoutLink.click();
 
 		return powerLoginPage;

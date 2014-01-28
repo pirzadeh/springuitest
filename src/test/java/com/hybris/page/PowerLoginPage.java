@@ -1,22 +1,15 @@
 package com.hybris.page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
-
 import com.hybris.page.base.Page;
+import com.hybris.page.base.PageObject;
 
 @Page
-public class PowerLoginPage {
+public class PowerLoginPage extends PageObject{
 
-	@Autowired
-	private WebDriver webDriver;
-	
+
 	@Autowired
 	private PowerOrderPage powerOrderPage;
 
@@ -48,15 +41,6 @@ public class PowerLoginPage {
 
 		loginAndCheckoutButtonLocator.submit();
 		return powerOrderPage;
-	}
-
-	public PowerLoginPage() {
-
-//		// Check that we're on the right page.
-//		if (!webDriver.getCurrentUrl().contains("login")) {
-//			// We are on the wrong page
-//			throw new IllegalStateException("This is not the login page");
-//		}
 	}
 
 }

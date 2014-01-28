@@ -1,19 +1,14 @@
 package com.hybris.page;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.hybris.page.base.Page;
+import com.hybris.page.base.PageObject;
 
 @Page
-public class PowerSearchResultsPage {
-
-	@Autowired
-	private WebDriver webDriver;
+public class PowerSearchResultsPage extends PageObject{
 
 	@Autowired
 	private PowerProductDetailsPage powerProductDetailsPage;
@@ -29,14 +24,6 @@ public class PowerSearchResultsPage {
 		this.productLink = productLink;
 	}
 
-	public PowerSearchResultsPage() {
-
-//		if (!webDriver.getCurrentUrl().contains("/search?text=")) {
-//			// We are on the wrong page
-//			throw new IllegalStateException(
-//					"This is not the search results page");
-//		}
-	}
 
 	public PowerProductDetailsPage selectProduct(String text) {
 		getProductLink(text);
@@ -44,9 +31,9 @@ public class PowerSearchResultsPage {
 
 		return powerProductDetailsPage;
 	}
-	
+
 	private void getProductLink(String text) {
-		productLink = webDriver
+		productLink = getDriver()
 				.findElement(By
 						.xpath("//a[contains(@class,'productMainLink') and contains(@href,'"
 								+ text + "')]"));

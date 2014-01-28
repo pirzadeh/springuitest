@@ -1,20 +1,16 @@
 package com.hybris.page;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.hybris.page.base.Page;
+import com.hybris.page.base.PageObject;
 
 @Page
-public class PowerProductDetailsPage {
+public class PowerProductDetailsPage extends PageObject{
 
-	@Autowired
-	 private WebDriver webDriver;
-	 
+
 	 @Autowired
 	 private PowerViewCartPage powerViewCartPage;
 
@@ -43,13 +39,4 @@ public class PowerProductDetailsPage {
 		return powerViewCartPage;
 	}
 
-	public PowerProductDetailsPage() {
-
-//		// Check that we're on the right page.
-//		if (!webDriver.getCurrentUrl().contains("Open-Catalogue")) {
-//			// We are on the wrong page
-//			throw new IllegalStateException(
-//					"This is not the product details page");
-//		}
-	}
 }
