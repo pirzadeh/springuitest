@@ -17,15 +17,6 @@ public class PowerViewCartPage extends PageObject{
 	@CacheLookup
 	protected WebElement checkoutLink;
 
-	public PowerViewCartPage() {
-
-//		// Check that we're on the right page.
-//		if (!webDriver.getTitle().startsWith("Your Shopping Cart")) {
-//			// We are on the wrong page
-//			throw new IllegalStateException("This is not the view cart page");
-//		}
-	}
-
 	public PowerLoginPage checkoutCart() {
 
 		checkoutLink.click();

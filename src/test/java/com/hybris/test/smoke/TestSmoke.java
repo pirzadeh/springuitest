@@ -1,6 +1,7 @@
 package com.hybris.test.smoke;
 
 import org.junit.Assert;
+import static org.fest.assertions.Assertions.assertThat;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
@@ -40,10 +41,11 @@ public class TestSmoke extends SeleniumTestCase {
 
 	@Autowired
 	private WebDriver webDriver;
+	private String currentPage;  
+	private String currentTitle; 
 
-	public void setDriver(WebDriver driver) {
-		this.webDriver = driver;
-	}
+	@Autowired
+	private WebDriverWait letsWait;
 
 	@Test
 	@Category({ SmokeTests.class, LoginFeature.class })
@@ -58,28 +60,38 @@ public class TestSmoke extends SeleniumTestCase {
 		PowerSearchResultsPage searchResultsPage = homePage
 				.searchFor(searchTerm);
 		// Then I should navigate to search results page
-		Assert.assertTrue(webDriver.getCurrentUrl().contains("/search?text="));
+		currentPage = webDriver.getCurrentUrl();
+		assertThat(currentPage).contains("/search?text=");
+
+		//Assert.assertTrue(webDriver.getCurrentUrl().contains("/search?text="));
 
 		PowerProductDetailsPage productDetailsPage = searchResultsPage
 				.selectProduct(productSelected);
-		Assert.assertTrue(webDriver.getCurrentUrl().contains("Open-Catalogue"));
+		currentPage = webDriver.getCurrentUrl();
+		assertThat(currentPage).contains("Open-Catalogue");
+		//Assert.assertTrue(webDriver.getCurrentUrl().contains("Open-Catalogue"));
 
 		productDetailsPage = productDetailsPage.addProductToCart();
-		Assert.assertTrue(webDriver.getCurrentUrl().contains("Open-Catalogue"));
+		currentPage = webDriver.getCurrentUrl();
+		assertThat(currentPage).contains("Open-Catalogue");
+		//Assert.assertTrue(webDriver.getCurrentUrl().contains("Open-Catalogue"));
 
-		WebDriverWait wait = new WebDriverWait(webDriver, 120);
-		wait.until(ExpectedConditions.elementToBeClickable(By
-				.xpath("//*[@id='addToCartButton']")));
+		//WebDriverWait wait = new WebDriverWait(webDriver, 120);
+		letsWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='addToCartButton']")));
 
 		PowerViewCartPage viewCartPage = productDetailsPage
 				.checkoutFromMinicart();
-		Assert.assertTrue(webDriver.getTitle().startsWith("Your Shopping Cart"));
+		currentTitle = webDriver.getTitle();
+		assertThat(currentTitle).startsWith("Your Shopping Cart");
+		//Assert.assertTrue(webDriver.getTitle().startsWith("Your Shopping Cart"));
 
 		PowerLoginPage loginPage = viewCartPage.checkoutCart();
 		loginPage = loginPage.typeUsername(username);
 		loginPage = loginPage.typePassword(password);
 		PowerOrderPage orderPage = loginPage.loginAndCheckout();
-		Assert.assertTrue(webDriver.getTitle().startsWith("Checkout"));
+		currentTitle = webDriver.getTitle();
+		assertThat(currentTitle).startsWith("Checkout");
+		//Assert.assertTrue(webDriver.getTitle().startsWith("Checkout"));
 
 	}
 

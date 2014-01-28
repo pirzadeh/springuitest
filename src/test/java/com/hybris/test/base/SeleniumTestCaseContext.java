@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -36,6 +37,12 @@ public class SeleniumTestCaseContext {
 	public WebDriver webDriver() {
 		return new FirefoxDriver();
 	}
+	
+	@Bean
+	@Scope("test")
+	public WebDriverWait letsWait() {
+		return new WebDriverWait(webDriver(), 120);
+	} 
 
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {

@@ -14,7 +14,7 @@ public class PowerSearchResultsPage extends PageObject{
 	private PowerProductDetailsPage powerProductDetailsPage;
 
 	@FindBy(xpath = "a[contains(@class,'productMainLink')]")
-	protected WebElement productLink;
+	private WebElement productLink;
 
 	public WebElement getProductLink() {
 		return productLink;

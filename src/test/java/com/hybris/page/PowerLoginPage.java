@@ -20,7 +20,7 @@ public class PowerLoginPage extends PageObject{
 	private WebElement j_password;
 
 	@FindBy(xpath = "//form[@id='loginForm']/descendant::button")
-	protected WebElement loginAndCheckoutButtonLocator;
+	private WebElement loginAndCheckoutButtonLocator;
 
 
 	public PowerLoginPage typeUsername(String username) {
