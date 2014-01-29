@@ -57,15 +57,13 @@ public class TestSmoke extends SeleniumTestCase {
 		PowerHome homePage = site.gotoPowerHome();
 
 		// When I enter "drill" on the page and click on search button
-		PowerSearchResultsPage searchResultsPage = homePage
-				.searchFor(searchTerm);
+		PowerSearchResultsPage searchResultsPage = homePage.searchFor(searchTerm);
 		// Then I should navigate to search results page
 		currentPage = webDriver.getCurrentUrl();
 		assertThat(currentPage).contains("/search?text=");
 
 		// When I select a product from the search results
-		PowerProductDetailsPage productDetailsPage = searchResultsPage
-				.selectProduct(productSelected);
+		PowerProductDetailsPage productDetailsPage = searchResultsPage.selectProduct(productSelected);
 		// Then I should navigate to product details page
 		currentPage = webDriver.getCurrentUrl();
 		assertThat(currentPage).contains("Open-Catalogue");
@@ -76,12 +74,10 @@ public class TestSmoke extends SeleniumTestCase {
 		// Then I should remain on the same page
 		assertThat(currentPage).contains("Open-Catalogue");
 
-		letsWait.until(ExpectedConditions.elementToBeClickable(By
-				.xpath("//*[@id='addToCartButton']")));
+		letsWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='addToCartButton']")));
 
 		// When I checkout from the mini cart
-		PowerViewCartPage viewCartPage = productDetailsPage
-				.checkoutFromMinicart();
+		PowerViewCartPage viewCartPage = productDetailsPage.checkoutFromMinicart();
 		currentTitle = webDriver.getTitle();
 		// Then I should navigate to view cart page
 		assertThat(currentTitle).startsWith("Your Shopping Cart");
@@ -94,9 +90,8 @@ public class TestSmoke extends SeleniumTestCase {
 		// When I login and checkout
 		PowerOrderPage orderPage = loginPage.loginAndCheckout();
 		currentTitle = webDriver.getTitle();
-		// Then I should navigate to the Order Placement Page 
+		// Then I should navigate to the Order Placement Page
 		assertThat(currentTitle).startsWith("Checkout");
-
 
 	}
 
