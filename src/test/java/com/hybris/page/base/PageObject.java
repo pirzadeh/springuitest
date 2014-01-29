@@ -16,4 +16,16 @@ public abstract class PageObject {
 		this.driver = driver;
 	}
 
+	public String getURL() {
+		return getDriver().getCurrentUrl();
+	}
+
+	public String getTitle() {
+		return getDriver().getTitle();
+	}
+
+	public String getHandleToWindow() {
+		return getDriver().getWindowHandle();
+	}
+
 }
