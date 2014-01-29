@@ -41,8 +41,8 @@ public class TestSmoke extends SeleniumTestCase {
 
 	@Autowired
 	private WebDriver webDriver;
-	private String currentPage;  
-	private String currentTitle; 
+	private String currentPage;
+	private String currentTitle;
 
 	@Autowired
 	private WebDriverWait letsWait;
@@ -55,7 +55,7 @@ public class TestSmoke extends SeleniumTestCase {
 
 		// Given I am on the Hybris home page
 		PowerHome homePage = site.gotoPowerHome();
-		// Assert.assertTrue(driver.getCurrentUrl().contains("/search?text="));
+
 		// When I enter "drill" on the page and click on search button
 		PowerSearchResultsPage searchResultsPage = homePage
 				.searchFor(searchTerm);
@@ -63,35 +63,40 @@ public class TestSmoke extends SeleniumTestCase {
 		currentPage = webDriver.getCurrentUrl();
 		assertThat(currentPage).contains("/search?text=");
 
-		//Assert.assertTrue(webDriver.getCurrentUrl().contains("/search?text="));
-
+		// When I select a product from the search results
 		PowerProductDetailsPage productDetailsPage = searchResultsPage
 				.selectProduct(productSelected);
+		// Then I should navigate to product details page
 		currentPage = webDriver.getCurrentUrl();
 		assertThat(currentPage).contains("Open-Catalogue");
-		//Assert.assertTrue(webDriver.getCurrentUrl().contains("Open-Catalogue"));
 
+		// When I add a product to cart
 		productDetailsPage = productDetailsPage.addProductToCart();
 		currentPage = webDriver.getCurrentUrl();
+		// Then I should remain on the same page
 		assertThat(currentPage).contains("Open-Catalogue");
-		//Assert.assertTrue(webDriver.getCurrentUrl().contains("Open-Catalogue"));
 
-		//WebDriverWait wait = new WebDriverWait(webDriver, 120);
-		letsWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='addToCartButton']")));
+		letsWait.until(ExpectedConditions.elementToBeClickable(By
+				.xpath("//*[@id='addToCartButton']")));
 
+		// When I checkout from the mini cart
 		PowerViewCartPage viewCartPage = productDetailsPage
 				.checkoutFromMinicart();
 		currentTitle = webDriver.getTitle();
+		// Then I should navigate to view cart page
 		assertThat(currentTitle).startsWith("Your Shopping Cart");
-		//Assert.assertTrue(webDriver.getTitle().startsWith("Your Shopping Cart"));
 
+		// When I checkout from the view cart page
 		PowerLoginPage loginPage = viewCartPage.checkoutCart();
+		// Then I shold be taken to the login page
 		loginPage = loginPage.typeUsername(username);
 		loginPage = loginPage.typePassword(password);
+		// When I login and checkout
 		PowerOrderPage orderPage = loginPage.loginAndCheckout();
 		currentTitle = webDriver.getTitle();
+		// Then I should navigate to the Order Placement Page 
 		assertThat(currentTitle).startsWith("Checkout");
-		//Assert.assertTrue(webDriver.getTitle().startsWith("Checkout"));
+
 
 	}
 
