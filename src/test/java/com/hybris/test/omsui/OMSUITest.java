@@ -19,28 +19,22 @@ public class OMSUITest extends SeleniumTestCase {
 
 
 	@Autowired
-	private BackOfficeDriver backOfficeSite;
+	private BackOfficeDriver testdriver;
 
 	@Autowired
 	private WebDriverWait letsWait;
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testHomePageSearch() {
 
 		// Given I am on the Hybris home page
-		BackOfficeLogin backOfficeLogin = backOfficeSite.gotoBackoffice();
+		BackOfficeLogin backOfficeLogin = testdriver.gotoBackoffice();
 
-		// When I enter "drill" on the page and click on search button
-		/*
-		 * PowerSearchResultsPage searchResultsPage =
-		 * homePage.searchFor(searchTerm);
-		 */
 		BackOfficeHome backOfficeHome = backOfficeLogin.login("admin", "nimda");
-		// Then I should navigate to search results page
-		letsWait.until(ExpectedConditions.titleContains("hybris Backoffice"));
+		//letsWait.until(ExpectedConditions.titleContains("hybris Backoffice"));
 		//assertThat(backOfficeHome.getTitle()).contains("hybris Backoffice");
 
-		@SuppressWarnings("unused")
 		OMS oms = backOfficeHome.getTopNavigation().gotoOMS();
 	}
 

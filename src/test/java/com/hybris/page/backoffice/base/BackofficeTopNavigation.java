@@ -1,4 +1,4 @@
-package com.hybris.page.backoffice;
+package com.hybris.page.backoffice.base;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

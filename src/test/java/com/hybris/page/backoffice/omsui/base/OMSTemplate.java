@@ -1,9 +1,9 @@
-package com.hybris.page.backoffice;
+package com.hybris.page.backoffice.omsui.base;
 
 import com.hybris.page.backoffice.base.BackofficeTemplate;
 import com.hybris.page.base.Page;
-@Page
-public class BackOfficeHome extends BackofficeTemplate{
 
-	
+@Page
+public class OMSTemplate extends BackofficeTemplate{
+
 }

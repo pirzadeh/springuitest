@@ -1,4 +1,4 @@
-package com.hybris.page.backoffice;
+package com.hybris.page.backoffice.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
