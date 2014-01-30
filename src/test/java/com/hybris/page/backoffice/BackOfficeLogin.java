@@ -12,7 +12,6 @@ public class BackOfficeLogin extends PageObject{
 
 	@Autowired
 	private BackOfficeHome backOfficeHome;
-
 		
 	private WebElement j_username;
 
@@ -39,8 +38,7 @@ public class BackOfficeLogin extends PageObject{
 
 		typeUsername(username);
 		typePassword(password);
-		lgBtn.submit();
+		lgBtn.click();
 		return backOfficeHome;
 	}
-
 }
