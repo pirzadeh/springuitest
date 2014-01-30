@@ -3,7 +3,7 @@ package com.hybris;
 import java.util.Map;
 import java.util.Set;
 
-import com.hybris.test.categories.LoginFeature;
+import com.hybris.test.base.LoginFeature;
 import com.hybris.test.smoke.TestSmoke;
 
 public class CheckCoverage {

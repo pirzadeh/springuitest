@@ -17,9 +17,10 @@ import com.hybris.page.b2b.PowerProductDetailsPage;
 import com.hybris.page.b2b.PowerSearchResultsPage;
 import com.hybris.page.b2b.PowerViewCartPage;
 import com.hybris.page.b2b.Site;
+import com.hybris.test.base.LoginFeature;
 import com.hybris.test.base.SeleniumTestCase;
-import com.hybris.test.categories.LoginFeature;
-import com.hybris.test.categories.SmokeTests;
+import com.hybris.test.base.SmokeTests;
+
 
 public class TestSmoke extends SeleniumTestCase {
 
