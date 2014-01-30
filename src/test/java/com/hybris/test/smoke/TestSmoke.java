@@ -5,19 +5,18 @@ import static org.fest.assertions.Assertions.assertThat;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import com.hybris.page.PowerHome;
-import com.hybris.page.PowerLoginPage;
-import com.hybris.page.PowerOrderPage;
-import com.hybris.page.PowerProductDetailsPage;
-import com.hybris.page.PowerSearchResultsPage;
-import com.hybris.page.PowerViewCartPage;
-import com.hybris.page.Site;
+import com.hybris.page.b2b.PowerHome;
+import com.hybris.page.b2b.PowerLoginPage;
+import com.hybris.page.b2b.PowerOrderPage;
+import com.hybris.page.b2b.PowerProductDetailsPage;
+import com.hybris.page.b2b.PowerSearchResultsPage;
+import com.hybris.page.b2b.PowerViewCartPage;
+import com.hybris.page.b2b.Site;
 import com.hybris.test.base.SeleniumTestCase;
 import com.hybris.test.categories.LoginFeature;
 import com.hybris.test.categories.SmokeTests;
@@ -50,6 +49,10 @@ public class TestSmoke extends SeleniumTestCase {
 		PowerHome homePage = site.gotoPowerHome();
 
 		// When I enter "drill" on the page and click on search button
+		/*
+		 * PowerSearchResultsPage searchResultsPage =
+		 * homePage.searchFor(searchTerm);
+		 */
 		PowerSearchResultsPage searchResultsPage = homePage.searchFor(searchTerm);
 		// Then I should navigate to search results page
 
