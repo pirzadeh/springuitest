@@ -13,13 +13,13 @@ import com.hybris.page.base.PageObject;
 @Page
 public class BackofficeTopNavigation extends PageObject{
 	
-	@FindBy(xpath = "@FindBy(xpath = .//*[@title='Commerce Search']")
+	@FindBy(xpath = ".//*[@title='Commerce Search']")
 	private WebElement commerceSearchButton;
 	
-	@FindBy(xpath = "@FindBy(xpath = .//*[@title='OMS']")
+	@FindBy(xpath = ".//*[@title='OMS']")
 	private WebElement omsButton;
 	
-	@FindBy(xpath = "@FindBy(xpath = .//*[@title='OMS Admin']")
+	@FindBy(xpath = ".//*[@title='OMS Admin']")
 	private WebElement omsAdminButton;
 
 	@Autowired
