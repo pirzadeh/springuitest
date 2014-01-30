@@ -1,4 +1,4 @@
-package com.hybris.page.omsui;
+package com.hybris.page.backoffice;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,4 +1,4 @@
-package com.hybris.page.omsui;
+package com.hybris.page.backoffice.omsui;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -6,6 +6,7 @@ import org.openqa.selenium.support.How;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hybris.page.b2b.PowerSearchResultsPage;
+import com.hybris.page.backoffice.BackOfficeLogin;
 import com.hybris.page.base.Page;
 import com.hybris.page.base.PageObject;
 
