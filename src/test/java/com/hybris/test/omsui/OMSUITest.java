@@ -37,7 +37,8 @@ public class OMSUITest extends SeleniumTestCase {
 	@Test
 	public void testSearch() {
 
-		gotoOMS().searchForDelivery("1386090044625");
+		gotoOMS().searchForDelivery("1386090044625").selectFirstItem();
+		
 	}
 
 }
