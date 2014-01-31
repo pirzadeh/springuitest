@@ -2,6 +2,7 @@ package com.hybris.test.base;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -35,9 +36,13 @@ public class SeleniumTestCaseContext {
 	@Bean
 	@Scope("test")
 	public WebDriver webDriver() {
-		return new FirefoxDriver();
+		WebDriver driver = new FirefoxDriver();
+		//driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
+		driver.manage().timeouts().setScriptTimeout(100,TimeUnit.SECONDS);
+		return driver;
 	}
-	
+
 	@Bean
 	@Scope("test")
 	public WebDriverWait letsWait() {
@@ -51,14 +56,14 @@ public class SeleniumTestCaseContext {
 		if (null != System.getProperty("Profile")) {
 
 			propertySourcesPlaceholderConfigurer
-					.setLocation(new ClassPathResource(
-							"environment_"+System.getProperty("Profile")+".properties"));
+			.setLocation(new ClassPathResource(
+					"environment_"+System.getProperty("Profile")+".properties"));
 
 		} else {
 
 			propertySourcesPlaceholderConfigurer
-					.setLocation(new ClassPathResource(
-							"environment_local.properties"));
+			.setLocation(new ClassPathResource(
+					"environment_local.properties"));
 
 		}
 

@@ -24,18 +24,20 @@ public class OMSUITest extends SeleniumTestCase {
 	@Autowired
 	private WebDriverWait letsWait;
 
-	@SuppressWarnings("unused")
-	@Test
-	public void testHomePageSearch() {
 
+	private OMS gotoOMS (){
 		// Given I am on the Hybris home page
 		BackOfficeLogin backOfficeLogin = testdriver.gotoBackoffice();
-
 		BackOfficeHome backOfficeHome = backOfficeLogin.login("admin", "nimda");
-		//letsWait.until(ExpectedConditions.titleContains("hybris Backoffice"));
-		//assertThat(backOfficeHome.getTitle()).contains("hybris Backoffice");
-
 		OMS oms = backOfficeHome.getTopNavigation().gotoOMS();
+		return oms;
+	}
+
+
+	@Test
+	public void testSearch() {
+
+		gotoOMS().searchForDelivery("1386090044625");
 	}
 
 }

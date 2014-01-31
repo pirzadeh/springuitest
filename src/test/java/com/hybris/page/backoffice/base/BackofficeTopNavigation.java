@@ -38,10 +38,13 @@ public class BackofficeTopNavigation extends PageObject{
 	}
 	
 	public OMS gotoOMS(){
+		findel(omsButton);
 		omsButton.click();
 		return oms;
 	}
 	
+	
+
 	public OMSAdmin gotoOMSAdmin(){
 		omsAdminButton.clear();
 		return omsAdmin;
