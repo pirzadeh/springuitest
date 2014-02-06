@@ -7,8 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.hybris.page.backoffice.commercesearch.CommerceSearch;
 import com.hybris.page.backoffice.omsadmin.OMSAdmin;
 import com.hybris.page.backoffice.omsui.OMS;
+import com.hybris.page.backoffice.omsui.newbase.OMSTemplate;
 import com.hybris.page.base.Page;
 import com.hybris.page.base.PageObject;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * <!--  end-user-doc  -->
+ * @generated
+ */
 
 @Page
 public class BackofficeTopNavigation extends PageObject{
@@ -49,4 +57,27 @@ public class BackofficeTopNavigation extends PageObject{
 		omsAdminButton.clear();
 		return omsAdmin;
 	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public OMSTemplate oMSTemplate;
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public void logout() {
+		// TODO : to implement	
+	}
+
+	
 }
+
